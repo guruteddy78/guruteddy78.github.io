@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas 5 MI - Berkarakter, Cerdas & Bertaqwa</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 50%, #0d9488 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-emerald-100 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-lg shadow-emerald-600/30">
+                        <i class="fa-solid me-0 fa-book-quran text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold bg-gradient-to-r from-emerald-800 to-teal-600 bg-clip-text text-transparent">Kelas 5 MIN 1 Mataram</span>
+                        <span class="block text-xs font-semibold text-emerald-600 tracking-wider">SAKTI</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <a href="#home" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all">
+                        <i class="fa-solid fa-house mr-1.5 text-emerald-600"></i> Home
+                    </a>
+                    <a href="#materi" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all">
+                        <i class="fa-solid fa-book-open mr-1.5 text-emerald-600"></i> Materi Pembelajaran
+                    </a>
+                    <a href="#asesmen" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all">
+                        <i class="fa-solid fa-clipboard-check mr-1.5 text-emerald-600"></i> Asesmen
+                    </a>
+                    <a href="#jadwal" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-all">
+                        <i class="fa-solid fa-calendar-days mr-1.5 text-emerald-600"></i> Jadwal
+                    </a>
+                    <a href="#kontak" class="ml-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-md shadow-emerald-600/20 transition-all">
+                        <i class="fa-solid fa-headset mr-1.5"></i> Kontak Guru
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2.5 rounded-xl text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-emerald-100 bg-white/95 backdrop-blur-md px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-link flex items-center px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">
+                <i class="fa-solid fa-house w-7 text-emerald-600"></i> Home
+            </a>
+            <a href="#materi" class="mobile-link flex items-center px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">
+                <i class="fa-solid fa-book-open w-7 text-emerald-600"></i> Materi Pembelajaran
+            </a>
+            <a href="#asesmen" class="mobile-link flex items-center px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">
+                <i class="fa-solid fa-clipboard-check w-7 text-emerald-600"></i> Asesmen
+            </a>
+            <a href="#jadwal" class="mobile-link flex items-center px-4 py-3 rounded-xl text-base font-semibold text-slate-700 hover:bg-emerald-50 hover:text-emerald-600">
+                <i class="fa-solid fa-calendar-days w-7 text-emerald-600"></i> Jadwal Pelajaran
+            </a>
+            <a href="#kontak" class="mobile-link flex items-center px-4 py-3 rounded-xl text-base font-bold bg-emerald-600 text-white hover:bg-emerald-700 mt-2">
+                <i class="fa-solid fa-headset w-7"></i> Hubungi Wali Kelas
+            </a>
+        </div>
+    </nav>
+
+    <!-- HOME / HERO SECTION -->
+    <section id="home" class="pt-28 pb-16 md:pt-36 md:pb-24 hero-gradient text-white relative overflow-hidden">
+        <!-- Decorative Background Patterns -->
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-emerald-100 text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-star text-amber-300"></i>
+                        <span>Portal Pembelajaran Digital Kelas 5 MI</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight text-white tracking-tight">
+                        Assalamu’alaikum Warahmatullahi Wabarakatuh 👋
+                    </h1>
+
+                    <p class="text-emerald-100 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                        Selamat datang di Ruang Belajar Digital Kelas 5 MIN 1 Mataram. Wadah interaktif untuk mengeksplorasi ilmu pengetahuan, mengasah kreativitas, serta menguatkan nilai-nilai keislaman dan Pancasila.
+                    </p>
+
+                    <!-- CTA Action Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#materi" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-900 font-extrabold text-center shadow-xl shadow-amber-400/20 transform hover:-translate-y-0.5 transition-all">
+                            <i class="fa-solid fa-rocket mr-2"></i> Mulai Belajar Now
+                        </a>
+                        <a href="#asesmen" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold text-center backdrop-blur-md transition-all">
+                            <i class="fa-solid fa-pen-to-square mr-2"></i> Lihat Asesmen & Kuis
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights Badges -->
+                    <div class="grid grid-cols-3 gap-3 pt-6 border-t border-white/15">
+                        <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <div class="text-2xl font-black text-amber-300">4</div>
+                            <div class="text-xs text-emerald-100 font-medium">Mapel Utama</div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <div class="text-2xl font-black text-teal-200">100%</div>
+                            <div class="text-xs text-emerald-100 font-medium">Kurikulum Berbasis Cinta</div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-white/5 border border-white/10 text-center">
+                            <div class="text-2xl font-black text-amber-300">38</div>
+                            <div class="text-xs text-emerald-100 font-medium">Siswa Hebat</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teacher Card / Welcome Banner -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white rounded-3xl p-6 sm:p-8 text-slate-800 shadow-2xl relative overflow-hidden border border-emerald-100">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-50 rounded-bl-full -z-0"></div>
+                        
+                        <div class="relative z-10 space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <img src="https://drive.google.com/file/d/1zsCfUlz9gJoV8OHw8L7j-fnkFi-JL1pv/view?usp=sharing" alt="Wali Kelas 5" class="w-20 h-20 rounded-2xl object-cover border-4 border-emerald-100 shadow-md">
+                                <div>
+                                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800">Wali Kelas 5</span>
+                                    <h3 class="text-xl font-bold text-slate-900 mt-1">Teddy Rusdi, M.Pd.I</h3>
+                                    <p class="text-xs text-slate-500">Guru MI Berdedikasi & Inovatif</p>
+                                </div>
+                            </div>
+
+                            <blockquote class="text-sm italic text-slate-600 bg-slate-50 p-4 rounded-2xl border-l-4 border-emerald-500">
+                                "Setiap anak adalah bintang yang bersinar dengan caranya sendiri. Mari belajar dengan riang, jujur, dan pantang menyerah!"
+                            </blockquote>
+
+                            <div class="space-y-2 pt-2">
+                                <div class="flex items-center text-xs font-semibold text-slate-600">
+                                    <i class="fa-solid fa-bullhorn text-emerald-600 w-6"></i>
+                                    <span>Pengumuman: Penilaian Tengah Semester Dimulai 15 Oktober</span>
+                                </div>
+                                <div class="flex items-center text-xs font-semibold text-slate-600">
+                                    <i class="fa-solid fa-clock text-amber-500 w-6"></i>
+                                    <span>Jam Pembelajaran: 07.00 - 12.30 WIB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION MATERI PEMBELAJARAN -->
+    <section id="materi" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-4 py-1.5 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 uppercase tracking-wider">Modul & Pembelajaran</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Materi Pembelajaran Kelas 5</h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Pilih mata pelajaran di bawah ini untuk mengakses ringkasan bab, video pembelajaran, rangkuman materi, dan bahan ajar downloadable.
+                </p>
+            </div>
+
+            <!-- Subject Filter / Navigation Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-10" id="subject-tabs">
+                <button onclick="filterSubject('all')" class="tab-btn active px-5 py-2.5 rounded-2xl font-bold text-sm transition-all bg-emerald-600 text-white shadow-md shadow-emerald-600/20" data-subject="all">
+                    <i class="fa-solid fa-shapes mr-2"></i> Semua Mapel
+                </button>
+                <button onclick="filterSubject('bindo')" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 transition-all" data-subject="bindo">
+                    <i class="fa-solid fa-language text-amber-500 mr-2"></i> Bahasa Indonesia
+                </button>
+                <button onclick="filterSubject('matematika')" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 transition-all" data-subject="matematika">
+                    <i class="fa-solid fa-calculator text-emerald-600 mr-2"></i> Matematika
+                </button>
+                <button onclick="filterSubject('ipas')" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 transition-all" data-subject="ipas">
+                    <i class="fa-solid fa-flask text-indigo-600 mr-2"></i> IPAS
+                </button>
+                <button onclick="filterSubject('pancasila')" class="tab-btn px-5 py-2.5 rounded-2xl font-bold text-sm bg-white text-slate-700 hover:bg-emerald-50 border border-slate-200 transition-all" data-subject="pancasila">
+                    <i class="fa-solid fa-shield-halved text-rose-600 mr-2"></i> Pendidikan Pancasila
+                </button>
+            </div>
+
+            <!-- Search Bar for Materials -->
+            <div class="max-w-md mx-auto mb-12">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="search-input" onkeyup="searchMateri()" placeholder="Cari topik atau nama bab..." class="w-full pl-11 pr-4 py-3 rounded-2xl border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm">
+                </div>
+            </div>
+
+            <!-- Materials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="materi-grid">
+
+                <!-- 1. BAHASA INDONESIA CARD -->
+                <div class="materi-card bg-white rounded-3xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between" data-subject="bindo" data-title="Teks Narasi dan Cerita Pendek Aksara">
+                    <div>
+                        <div class="h-3 rounded-t-3xl bg-gradient-to-r from-amber-400 to-amber-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-xl text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                    Bahasa Indonesia
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Bab 1 - 3</span>
+                            </div>
+
+                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Aku dan Duniaku (Teks Narasi & Cerita)</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Memahami unsur intrinsik cerita (Tokoh, Latar, Amanat), sinonim-antonim, serta menulis surat pribadi.
+                            </p>
+
+                            <ul class="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Unsur Teks Narasi</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Kamus Kata Baru (Vokabularies)</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Menulis Surat untuk Sahabat</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('bindo1')" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-xs shadow-md transition-all">
+                            <i class="fa-solid fa-eye mr-1.5"></i> Pelajari Bab Ini
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2. MATEMATIKA CARD -->
+                <div class="materi-card bg-white rounded-3xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between" data-subject="matematika" data-title="Pecahan Desimal dan Operasi Hitung">
+                    <div>
+                        <div class="h-3 rounded-t-3xl bg-gradient-to-r from-emerald-500 to-teal-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-xl text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                    Matematika
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Bab 1 - 2</span>
+                            </div>
+
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-calculator"></i>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Pecahan Senilai & Bilangan Desimal</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Menguasai operasi penjumlahan, pengurangan, perkalian pecahan serta mengubah pecahan ke bentuk desimal.
+                            </p>
+
+                            <ul class="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Pecahan Senilai & Campuran</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Operasi Perkalian Pecahan</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Konversi Desimal & Persen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('matematika1')" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md transition-all">
+                            <i class="fa-solid fa-eye mr-1.5"></i> Pelajari Bab Ini
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. IPAS CARD -->
+                <div class="materi-card bg-white rounded-3xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between" data-subject="ipas" data-title="Melihat karena Cahaya Mendengar karena Bunyi IPAS">
+                    <div>
+                        <div class="h-3 rounded-t-3xl bg-gradient-to-r from-indigo-500 to-blue-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-xl text-xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                    IPAS
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Bab 1 - 4</span>
+                            </div>
+
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-vial"></i>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Cahaya, Bunyi, & Ekosistem Alam</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Menjelajahi sifat-sifat cahaya, indra pendengaran, rantai makanan, serta harmoni dalam ekosistem.
+                            </p>
+
+                            <ul class="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Sifat-Sifat Cahaya & Cermin</li>
+                                <li class="flex items-center"><li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Bagian Telinga & Cara Kerja</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Rantai Makanan & Jaring-jaring</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('ipas1')" class="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-md transition-all">
+                            <i class="fa-solid fa-eye mr-1.5"></i> Pelajari Bab Ini
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. PENDIDIKAN PANCASILA CARD -->
+                <div class="materi-card bg-white rounded-3xl border border-slate-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between" data-subject="pancasila" data-title="Pancasila dalam Kehidupanku Hak dan Kewajiban">
+                    <div>
+                        <div class="h-3 rounded-t-3xl bg-gradient-to-r from-rose-500 to-red-600"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-3 py-1 rounded-xl text-xs font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                                    Pendidikan Pancasila
+                                </span>
+                                <span class="text-xs text-slate-400 font-medium">Bab 1 - 2</span>
+                            </div>
+
+                            <div class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-shield-heart"></i>
+                            </div>
+
+                            <h3 class="text-lg font-bold text-slate-900 mb-2">Pancasila & Gotong Royong</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed mb-4">
+                                Penerapan nilai Pancasila dalam keseharian di Madrasah, norma sosial, serta hak & kewajiban anak.
+                            </p>
+
+                            <ul class="space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3">
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Sila Pancasila di Sekolah</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Hak & Kewajiban di Rumah/MI</li>
+                                <li class="flex items-center"><i class="fa-solid fa-circle-check text-emerald-500 mr-2"></i> Keragaman Budaya Indonesia</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal('pancasila1')" class="w-full py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow-md transition-all">
+                            <i class="fa-solid fa-eye mr-1.5"></i> Pelajari Bab Ini
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ASESMEN -->
+    <section id="asesmen" class="py-20 bg-emerald-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Title -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="px-4 py-1.5 rounded-full text-xs font-extrabold bg-emerald-800 text-emerald-200 uppercase tracking-wider border border-emerald-700">Evaluasi & Asesmen</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3">Panduan & Portal Asesmen</h2>
+                <p class="text-emerald-100 mt-3 text-base">
+                    Informasi pelaksanaan asesmen formatif, sumatif, serta link tes online harian untuk siswa Kelas 5 Madrasah Ibtidaiyah.
+                </p>
+            </div>
+
+            <!-- Guidelines & Links Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Guidelines Box -->
+                <div class="lg:col-span-5 bg-emerald-800/80 rounded-3xl p-6 sm:p-8 border border-emerald-700 shadow-xl backdrop-blur-sm">
+                    <h3 class="text-xl font-bold text-amber-300 mb-6 flex items-center">
+                        <i class="fa-solid fa-circle-info mr-3"></i> Panduan Asesmen Siswa
+                    </h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-2xl bg-emerald-700 text-emerald-200 flex items-center justify-center font-bold text-sm shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Jujur & Mandiri</h4>
+                                <p class="text-xs text-emerald-200 mt-1">Kerjakan soal tanpa bantuan orang lain atau membuka buku kecuali diperbolehkan (Open Book).</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-2xl bg-emerald-700 text-emerald-200 flex items-center justify-center font-bold text-sm shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Waktu Pelaksanaan</h4>
+                                <p class="text-xs text-emerald-200 mt-1">Asesmen harian dibuka setiap jam 08.00 - 20.00 WIB sesuai jadwal yang ditentukan Bapak/Ibu Guru.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-2xl bg-emerald-700 text-emerald-200 flex items-center justify-center font-bold text-sm shrink-0">3</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Persiapan Perangkat</h4>
+                                <p class="text-xs text-emerald-200 mt-1">Pastikan koneksi internet stabil dan baterai HP/Laptop terisi sebelum memulai kuis.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assessment Types Badge -->
+                    <div class="mt-8 pt-6 border-t border-emerald-700/60 grid grid-cols-2 gap-3 text-center">
+                        <div class="p-3 bg-emerald-900/50 rounded-2xl border border-emerald-700/50">
+                            <div class="text-xs text-emerald-300 font-semibold">Formatif</div>
+                            <div class="text-xs font-bold text-white mt-0.5">Tugas & Kuis Bab</div>
+                        </div>
+                        <div class="p-3 bg-emerald-900/50 rounded-2xl border border-emerald-700/50">
+                            <div class="text-xs text-emerald-300 font-semibold">Sumatif</div>
+                            <div class="text-xs font-bold text-white mt-0.5">STS & SAS Semester</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Online Assessment Links Portal -->
+                <div class="lg:col-span-7 space-y-4">
+                    <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                        <i class="fa-solid fa-link mr-3 text-amber-300"></i> Link Pengerjaan Asesmen Resmi
+                    </h3>
+
+                    <!-- Link Card 1: Quizizz / Kuis Online -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-emerald-100 hover:border-amber-400 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center text-xl shrink-0 font-black">
+                                <i class="fa-solid fa-gamepad"></i>
+                            </div>
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-100 text-purple-700">KUIS INTERAKTIF</span>
+                                <h4 class="text-base font-extrabold text-slate-900 mt-0.5">Quizizz Latihan Bab 1 & 2</h4>
+                                <p class="text-xs text-slate-500">Kuis menyenangkan interaktif untuk Bahasa Indonesia & IPAS</p>
+                            </div>
+                        </div>
+                        <a href="https://quizizz.com" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs text-center shrink-0 shadow-md">
+                            Buka Quizizz <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- Link Card 2: Google Form Asesmen Harian -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-emerald-100 hover:border-emerald-400 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-file-pen"></i>
+                            </div>
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-100 text-emerald-700">ASESMEN HARIAN</span>
+                                <h4 class="text-base font-extrabold text-slate-900 mt-0.5">Google Form Matematika & Pancasila</h4>
+                                <p class="text-xs text-slate-500">Lembar Jawaban Online Ulangan Harian Bab 2</p>
+                            </div>
+                        </div>
+                        <a href="https://forms.google.com" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs text-center shrink-0 shadow-md">
+                            Isi Formulir <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- Link Card 3: CBT Madrasah Online -->
+                    <div class="bg-white text-slate-800 rounded-3xl p-6 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-emerald-100 hover:border-teal-400 transition-all">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-computer"></i>
+                            </div>
+                            <div>
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-teal-100 text-teal-700">UJIAN SEMESTER</span>
+                                <h4 class="text-base font-extrabold text-slate-900 mt-0.5">Portal CBT Madrasah Digital</h4>
+                                <p class="text-xs text-slate-500">Ujian Tengah Semester & Akhir Semester (STS & SAS)</p>
+                            </div>
+                        </div>
+                        <button onclick="openCbtNotice()" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs text-center shrink-0 shadow-md">
+                            Masuk Portal <i class="fa-solid fa-right-to-bracket ml-1"></i>
+                        </button>
+                    </div>
+
+                    <!-- Interactive Mini Practice Quiz Banner -->
+                    <div class="bg-gradient-to-r from-amber-500 to-amber-600 text-slate-900 p-6 rounded-3xl shadow-xl mt-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-extrabold text-base text-slate-900"><i class="fa-solid fa-brain mr-2"></i>Uji Pemahaman Kilat (Latihan Mandiri)</h4>
+                            <span class="text-xs bg-slate-900 text-amber-300 font-bold px-3 py-1 rounded-full">Soal Hari Ini</span>
+                        </div>
+                        <p class="text-sm font-semibold text-slate-900 mb-4" id="quiz-question">
+                            "Benda yang dapat merambatkan bunyi paling cepat adalah benda berpangkat..."
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-bold" id="quiz-options">
+                            <button onclick="checkAnswer(false)" class="p-3 bg-white/90 hover:bg-white rounded-xl text-left transition-all">A. Gas / Udara</button>
+                            <button onclick="checkAnswer(true)" class="p-3 bg-white/90 hover:bg-white rounded-xl text-left transition-all">B. Padat / Logam</button>
+                            <button onclick="checkAnswer(false)" class="p-3 bg-white/90 hover:bg-white rounded-xl text-left transition-all">C. Cair / Air</button>
+                            <button onclick="checkAnswer(false)" class="p-3 bg-white/90 hover:bg-white rounded-xl text-left transition-all">D. Ruang Hampa</button>
+                        </div>
+                        <div id="quiz-feedback" class="hidden mt-3 p-3 rounded-xl text-xs font-bold"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION JADWAL & PENGUMUMAN -->
+    <section id="jadwal" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="px-4 py-1.5 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800 uppercase tracking-wider">Jadwal Belajar</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Jadwal Pelajaran Mingguan</h2>
+                <p class="text-slate-600 mt-2 text-sm">Persiapkan buku dan kelengkapan belajar sesuai jadwal harian Kelas 5.</p>
+            </div>
+
+            <!-- Schedule Table Card -->
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden max-w-5xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-emerald-700 text-white font-bold">
+                                <th class="p-4 border-b border-emerald-600">Hari</th>
+                                <th class="p-4 border-b border-emerald-600">Jam 07.30 - 09.00</th>
+                                <th class="p-4 border-b border-emerald-600">Jam 09.30 - 11.00</th>
+                                <th class="p-4 border-b border-emerald-600">Jam 11.15 - 12.30</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700 font-medium">
+                            <tr class="hover:bg-emerald-50/50 transition-all">
+                                <td class="p-4 font-bold text-emerald-800 bg-slate-50">Senin</td>
+                                <td class="p-4"><span class="font-bold text-slate-900">Upacara & B. Indonesia</span></td>
+                                <td class="p-4">Matematika</td>
+                                <td class="p-4">Al-Qur'an Hadits</td>
+                            </tr>
+                            <tr class="hover:bg-emerald-50/50 transition-all">
+                                <td class="p-4 font-bold text-emerald-800 bg-slate-50">Selasa</td>
+                                <td class="p-4"><span class="font-bold text-slate-900">IPAS (Sains)</span></td>
+                                <td class="p-4">Pendidikan Pancasila</td>
+                                <td class="p-4">Bahasa Arab</td>
+                            </tr>
+                            <tr class="hover:bg-emerald-50/50 transition-all">
+                                <td class="p-4 font-bold text-emerald-800 bg-slate-50">Rabu</td>
+                                <td class="p-4"><span class="font-bold text-slate-900">Matematika</span></td>
+                                <td class="p-4">IPAS (Sosial)</td>
+                                <td class="p-4">Akidah Akhlak</td>
+                            </tr>
+                            <tr class="hover:bg-emerald-50/50 transition-all">
+                                <td class="p-4 font-bold text-emerald-800 bg-slate-50">Kamis</td>
+                                <td class="p-4"><span class="font-bold text-slate-900">Bahasa Indonesia</span></td>
+                                <td class="p-4">PJOK (Olahraga)</td>
+                                <td class="p-4">Fiqih</td>
+                            </tr>
+                            <tr class="hover:bg-emerald-50/50 transition-all">
+                                <td class="p-4 font-bold text-emerald-800 bg-slate-50">Jum'at</td>
+                                <td class="p-4"><span class="font-bold text-slate-900">Jum'at Imtaq & Yasin</span></td>
+                                <td class="p-4">Seni Budaya & Prakarya</td>
+                                <td class="p-4">Pramuka / Ekstra</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & KONTAK GURU -->
+    <footer id="kontak" class="bg-slate-900 text-slate-300 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Identity -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-2xl bg-emerald-600 flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white">Kelas 5 Madrasah Ibtidaiyah</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        Website resmi pembelajaran digital dan portal informasi wali kelas 5 MIN 1 Mataram. Menyiapkan generasi mulia, berprestasi, berakhlakul karimah.
+                    </p>
+                    <div class="flex space-x-3 text-slate-400">
+                        <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-emerald-600 hover:text-white flex items-center justify-center transition-all"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-white text-sm font-bold tracking-wider uppercase">Menu Utama</h4>
+                    <ul class="space-y-2 text-xs font-medium text-slate-400">
+                        <li><a href="#home" class="hover:text-emerald-400 transition-all">Home / Beranda</a></li>
+                        <li><a href="#materi" class="hover:text-emerald-400 transition-all">Bahasa Indonesia & Matematika</a></li>
+                        <li><a href="#materi" class="hover:text-emerald-400 transition-all">IPAS & Pendidikan Pancasila</a></li>
+                        <li><a href="#asesmen" class="hover:text-emerald-400 transition-all">Panduan Asesmen & CBT</a></li>
+                        <li><a href="#jadwal" class="hover:text-emerald-400 transition-all">Jadwal Pelajaran Mingguan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Teacher Contact -->
+                <div class="md:col-span-4 space-y-3 bg-slate-800/60 p-6 rounded-3xl border border-slate-700/50">
+                    <h4 class="text-amber-300 text-sm font-bold uppercase tracking-wider">Kontak Wali Kelas</h4>
+                    <p class="text-xs text-slate-300">Hubungi wali kelas untuk konsultasi belajar atau kendala akses asesmen:</p>
+                    <div class="space-y-2 pt-1 text-xs">
+                        <div class="flex items-center text-slate-200">
+                            <i class="fa-solid fa-user-tie text-emerald-400 w-6"></i>
+                            <span>Teddy Rusdi, M.Pd.I</span>
+                        </div>
+                        <div class="flex items-center text-slate-200">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 w-6"></i>
+                            <span>+62 818-0371-8739 (WhatsApp)</span>
+                        </div>
+                        <div class="flex items-center text-slate-200">
+                            <i class="fa-solid fa-location-dot text-emerald-400 w-6"></i>
+                            <span>Ruang Kelas 5 MIN 1 Mataram</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 MIN 1 Mataram. Seluruh Hak Cipta Dilindungi.</p>
+                <p class="mt-2 sm:mt-0">Dibuat dengan <i class="fa-solid fa-heart text-rose-500"></i> untuk Pendidikan Indonesia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP UNTUK MATERI DETAIL -->
+    <div id="materi-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-slate-100 transform transition-all duration-300">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-t-3xl" id="modal-header">
+                <div>
+                    <span id="modal-badge" class="px-3 py-1 rounded-full text-xs font-extrabold bg-emerald-100 text-emerald-800">Materi</span>
+                    <h3 id="modal-title" class="text-xl font-bold text-slate-900 mt-1">Judul Materi</h3>
+                </div>
+                <button onclick="closeModal()" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-500 flex items-center justify-center transition-all shadow-sm">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="p-6 space-y-6" id="modal-body">
+                <!-- Content inserted via JS -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-6 border-t border-slate-100 bg-slate-50 rounded-b-3xl flex flex-wrap items-center justify-between gap-3">
+                <button onclick="closeModal()" class="px-5 py-2.5 rounded-xl border border-slate-300 font-bold text-xs text-slate-700 hover:bg-slate-200 transition-all">
+                    Tutup Halaman
+                </button>
+                <button onclick="downloadModuleNotice()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 font-bold text-xs text-white shadow-md transition-all">
+                    <i class="fa-solid fa-download mr-1.5"></i> Unduh Modul PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL NOTIFIKASI CBT -->
+    <div id="cbt-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl text-center space-y-4">
+            <div class="w-16 h-16 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-2xl mx-auto">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Portal CBT Madrasah</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Silakan siapkan **Username** dan **Password** yang diberikan oleh Wali Kelas sebelum masuk ke server ujian CBT.
+            </p>
+            <div class="pt-2 flex space-x-3">
+                <button onclick="closeCbtModal()" class="w-1/2 py-2.5 rounded-xl bg-slate-100 font-bold text-xs text-slate-700 hover:bg-slate-200 transition-all">Batal</button>
+                <button onclick="closeCbtModal()" class="w-1/2 py-2.5 rounded-xl bg-teal-600 font-bold text-xs text-white hover:bg-teal-700 shadow-md transition-all">Lanjutkan Ujian</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Filter Subject Materials
+        function filterSubject(subject) {
+            const tabs = document.querySelectorAll('#subject-tabs .tab-btn');
+            tabs.forEach(tab => {
+                if(tab.getAttribute('data-subject') === subject) {
+                    tab.classList.add('bg-emerald-600', 'text-white', 'shadow-md');
+                    tab.classList.remove('bg-white', 'text-slate-700');
+                } else {
+                    tab.classList.remove('bg-emerald-600', 'text-white', 'shadow-md');
+                    tab.classList.add('bg-white', 'text-slate-700');
+                }
+            });
+
+            const cards = document.querySelectorAll('.materi-card');
+            cards.forEach(card => {
+                if (subject === 'all' || card.getAttribute('data-subject') === subject) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Materials
+        function searchMateri() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const cards = document.querySelectorAll('.materi-card');
+
+            cards.forEach(card => {
+                const title = card.getAttribute('data-title').toLowerCase();
+                const text = card.innerText.toLowerCase();
+                if (title.includes(query) || text.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Detail Materials Modal Database
+        const materialsData = {
+            'bindo1': {
+                title: 'Bahasa Indonesia: Aku dan Duniaku (Teks Narasi)',
+                badge: 'Bahasa Indonesia - Bab 1',
+                content: `
+                    <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                        <div class="p-4 bg-amber-50 rounded-2xl border border-amber-200">
+                            <h4 class="font-bold text-amber-900 text-sm mb-1"><i class="fa-solid fa-lightbulb mr-1.5"></i> Ringkasan Pembelajaran</h4>
+                            <p>Pada bab ini, siswa diajak memahami struktur cerita narasi seperti Tokoh Utama, Latar Tempat, Latar Waktu, Alur, dan Amanat Cerita.</p>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900">Materi Penting:</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <td><b>Unsur Intrinsik Cerita:</b> Tema, Tokoh/Penokohan, Latar, Plot, Pesan Moral.</td>
+                            <td><b>Sinonim & Antonim:</b> Memperkaya kosa kata Bahasa Indonesia melalui bacaan pendek.</td>
+                            <td><b>Surat Pribadi:</b> Cara menulis surat untuk teman dengan bahasa yang santun dan jelas.</td>
+                        </ul>
+                        <div class="p-4 bg-slate-100 rounded-2xl">
+                            <h5 class="font-bold text-slate-900 mb-1">Tugas Ringkas Minggu Ini:</h5>
+                            <p>Bacalah buku cerita di rumah, lalu tuliskan 3 tokoh utama beserta wataknya di buku catatan!</p>
+                        </div>
+                    </div>
+                `
+            },
+            'matematika1': {
+                title: 'Matematika: Pecahan Senilai & Desimal',
+                badge: 'Matematika - Bab 1',
+                content: `
+                    <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                        <div class="p-4 bg-emerald-50 rounded-2xl border border-emerald-200">
+                            <h4 class="font-bold text-emerald-900 text-sm mb-1"><i class="fa-solid fa-calculator mr-1.5"></i> Ringkasan Pembelajaran</h4>
+                            <p>Siswa menguasai cara menjumlahkan, mengalikan pecahan biasa dan campuran, serta mengubahnya menjadi desimal.</p>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900">Contoh Soal Kunci:</h4>
+                        <div class="p-3 bg-white border border-slate-200 rounded-xl font-mono text-xs">
+                            1) 1/2 + 2/4 = 2/4 + 2/4 = 4/4 = 1<br>
+                            2) 3/5 diubah ke desimal = 3 ÷ 5 = 0,6
+                        </div>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <td>Penyamaan penyebut menggunakan KPK.</td>
+                            <td>Perkalian pecahan: Pembilang × Pembilang, Penyebut × Penyebut.</td>
+                        </ul>
+                    </div>
+                `
+            },
+            'ipas1': {
+                title: 'IPAS: Sifat Cahaya, Pendengaran & Ekosistem',
+                badge: 'IPAS - Bab 1 & 2',
+                content: `
+                    <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                        <div class="p-4 bg-indigo-50 rounded-2xl border border-indigo-200">
+                            <h4 class="font-bold text-indigo-900 text-sm mb-1"><i class="fa-solid fa-vial mr-1.5"></i> Eksperimen Sains</h4>
+                            <p>Memahami bagaimana cahaya merambat lurus, dapat dibiaskan, dipantulkan, serta bagaimana indra telinga menangkap gelombang bunyi.</p>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900">Sifat-Sifat Cahaya:</h4>
+                        <ol class="list-decimal pl-5 space-y-1">
+                            <td>Cahaya merambat lurus.</td>
+                            <td>Cahaya menembus benda bening.</td>
+                            <td>Cahaya dapat dibiaskan (contoh: pensil dalam gelas berisi air terlihat patah).</td>
+                            <td>Cahaya dapat dipantulkan.</td>
+                        </ol>
+                    </div>
+                `
+            },
+            'pancasila1': {
+                title: 'Pendidikan Pancasila: Nilai Pancasila & Hak Kewajiban',
+                badge: 'Pendidikan Pancasila - Bab 1',
+                content: `
+                    <div class="space-y-4 text-xs text-slate-700 leading-relaxed">
+                        <div class="p-4 bg-rose-50 rounded-2xl border border-rose-200">
+                            <h4 class="font-bold text-rose-900 text-sm mb-1"><i class="fa-solid fa-heart mr-1.5"></i> Karakter Profil Pelajar Pancasila</h4>
+                            <p>Penerapan norma gotong royong, toleransi antar sesama siswa di Madrasah, serta pemenuhan hak dan kewajiban.</p>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900">Hak vs Kewajiban:</h4>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <td><b>Hak Siswa:</b> Mendapat bimbingan guru, suasana belajar aman & nyaman.</td>
+                            <td><b>Kewajiban Siswa:</b> Datang tepat waktu, menjaga kebersihan kelas, menghormati guru.</td>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        function openModal(id) {
+            const data = materialsData[id];
+            if(!data) return;
+
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-badge').innerText = data.badge;
+            document.getElementById('modal-body').innerHTML = data.content;
+            
+            document.getElementById('materi-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('materi-modal').classList.add('hidden');
+        }
+
+        function openCbtNotice() {
+            document.getElementById('cbt-modal').classList.remove('hidden');
+        }
+
+        function closeCbtModal() {
+            document.getElementById('cbt-modal').classList.add('hidden');
+        }
+
+        function downloadModuleNotice() {
+            const msg = document.createElement('div');
+            msg.className = "fixed bottom-5 right-5 bg-emerald-700 text-white px-5 py-3 rounded-2xl shadow-2xl text-xs font-bold z-50 animate-bounce flex items-center";
+            msg.innerHTML = `<i class="fa-solid fa-check-circle mr-2 text-lg"></i> Modul PDF berhasil diunduh ke perangkat Anda!`;
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3500);
+        }
+
+        // Mini Quiz Answer Checker
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'bg-rose-100', 'text-rose-800');
+
+            if(isCorrect) {
+                feedback.classList.add('bg-emerald-100', 'text-emerald-800');
+                feedback.innerHTML = `<i class="fa-solid fa-circle-check mr-1.5"></i> <b>Hebat! Jawaban Benar.</b> Benda padat merambatkan bunyi paling cepat karena kerapatan molekulnya tinggi.`;
+            } else {
+                feedback.classList.add('bg-rose-100', 'text-rose-800');
+                feedback.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1.5"></i> <b>Hampir Benar!</b> Coba ingat lagi sifat kerapatan zat padat, cair, dan gas. Jawaban yang tepat adalah B. Padat / Logam.`;
+            }
+        }
+    </script>
+</body>
+</html>
